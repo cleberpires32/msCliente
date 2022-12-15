@@ -1,0 +1,16 @@
+# o Nome do cadastro da aplica��o pode ser qualquer nome sem a necessidade de ser o mesmo da aplica��o.
+spring:
+  application:
+    name: msclientes
+#o servidor com a porta 0 zero informa que a cria��o � aleat�ria randomica para o registrador e n�o manual.
+server:
+  port:  0
+#Estou informando onde a minha porta do mscliente tem que se cadastrar.
+eureka:
+  client:
+    server-url:
+      defaultZone: http//localhost:8761/eureka
+# Esta propriedade cria o nome conforme o programador desejar neste caso ser� gerado o nome da aplica��o
+  #id da instancia e um valor aleatorio.
+  instance:
+    instance_id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
